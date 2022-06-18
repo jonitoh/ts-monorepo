@@ -28,6 +28,7 @@ README available in:
 <br/>
 
 <!-- github badges -->
+
 ![GitHub contributors](https://img.shields.io/github/contributors/jonitoh/readme-examples)
 ![GitHub repo size](https://img.shields.io/github/repo-size/jonitoh/readme-examples)
 ![GitHub all releases](https://img.shields.io/github/downloads/jonitoh/readme-examples/total)
@@ -45,10 +46,15 @@ README available in:
 <br/>
 
 ---
+
 ---
+
 <!-- news / quick announcements -->
+
 ### This README is ready-to-use! 🥳
+
 ---
+
 ---
 
 <!-- summary -->
@@ -57,7 +63,7 @@ README available in:
 
 **TABLE OF CONTENT**
 
-[**🌱&nbsp; About the project**](#philosophy) | [**👨‍💻&nbsp; Tech stack**](#tech) | 
+[**🌱&nbsp; About the project**](#philosophy) | [**👨‍💻&nbsp; Tech stack**](#tech) |
 [**📖&nbsp; Usage**](#usage) |
 [**🎯&nbsp; Features**](#features) |
 [**⚠️&nbsp; Limitations**](#limits) |
@@ -80,7 +86,6 @@ There are so many great README over the internet let alone GitHub. However, I de
    <img height="20px" src="docs/assets/up-arrow-svgrepo-com.svg" />
  </a>
 </p>
-
 
 # <a id="tech">👨‍💻&nbsp;</a> Tech stack
 
@@ -105,7 +110,7 @@ You can use the file `README-BLANK.md` to get started. It has the minimal struct
 
 ## ⚙️&nbsp; Requirements
 
-No specific requirements. 
+No specific requirements.
 
 ## 👀&nbsp; Examples
 
@@ -118,16 +123,14 @@ This README is an example of what my template can create.
  </a>
 </p>
 
-
 # <a id="features">🎯&nbsp;</a> Features
-
 
 - [x] Add Emoji
 - [x] Add back to top links
 - [ ] Add relevant gifs for this README
 - [x] Multi-language Support
-    - [x] French
-    - [x] English
+  - [x] French
+  - [x] English
 
 <!-- back to top -->
 <p align="right">
@@ -135,7 +138,6 @@ This README is an example of what my template can create.
    <img height="20px" src="docs/assets/up-arrow-svgrepo-com.svg" />
  </a>
 </p>
-
 
 # <a id="limits">⚠️&nbsp;</a> Limitations
 
@@ -148,18 +150,15 @@ This README is an example of what my template can create.
  </a>
 </p>
 
-
 # <a id="contribs">🤝&nbsp;</a> Contributions
 
 **Thanks in advance for anyone who will contribute to expanding this template!**
 
 😱 Found a bug? Missing a specific feature?
 
-If you have any suggestion, please proceed by forking this repo and creating a pull request or opening an issue with the tag `enhancement`. 
-
+If you have any suggestion, please proceed by forking this repo and creating a pull request or opening an issue with the tag `enhancement`.
 
 🤩 Don't forget to give the project a star! Thanks again!
-
 
 <!-- back to the top -->
 <p align="right">
@@ -168,9 +167,7 @@ If you have any suggestion, please proceed by forking this repo and creating a p
  </a>
 </p>
 
-
 # <a id="license">📘&nbsp;</a> License
-
 
 This project is released under the terms of the [MIT License](LICENSE).
 
@@ -181,20 +178,18 @@ This project is released under the terms of the [MIT License](LICENSE).
  </a>
 </p>
 
-
 # <a id="acknowledgments">❤️&nbsp;</a> Acknowledgments
 
+🏆 Here are the nominees, with no particular order, in the category for **_best resources used for this project_**:
 
-🏆 Here are the nominees, with no particular order, in the category for ***best resources used for this project***:
-
-* [How to Add Badges to a GitHub Repository](https://betterprogramming.pub/add-badges-to-a-github-repository-716d2988dc6a)
-* [Choose an Open Source License](https://choosealicense.com)
-* [Img Shields](https://shields.io) for those beautiful badges !
-* [HTML code generator](https://www.html-code-generator.com/svg/country-flags) for the flag
-* [SVG Repo](https://www.svgrepo.com/) for the icons used here aka the logo and the back to top icon.
-* [Awesome README](https://github.com/matiassingers/awesome-readme): a curated list of awesome READMEs!
-* [Best-README-Template](https://github.com/othneildrew/Best-README-Template): another README template you can check it out.
-* [Fiber](https://github.com/gofiber/fiber) for their multilingual README.
+- [Monorepo Setup with NPM and TypeScript](https://javascript.plainenglish.io/monorepo-setup-with-npm-and-typescript-90b329ba7275)
+- [Choose an Open Source License](https://choosealicense.com)
+- [Img Shields](https://shields.io) for those beautiful badges !
+- [HTML code generator](https://www.html-code-generator.com/svg/country-flags) for the flag
+- [SVG Repo](https://www.svgrepo.com/) for the icons used here aka the logo and the back to top icon.
+- [Awesome README](https://github.com/matiassingers/awesome-readme): a curated list of awesome READMEs!
+- [Best-README-Template](https://github.com/othneildrew/Best-README-Template): another README template you can check it out.
+- [Fiber](https://github.com/gofiber/fiber) for their multilingual README.
 
 <!-- back to the top -->
 <p align="right">
@@ -203,7 +198,7 @@ This project is released under the terms of the [MIT License](LICENSE).
  </a>
 </p>
 
-# <a id="encore">👀&nbsp;</a> What else ? 
+# <a id="encore">👀&nbsp;</a> What else ?
 
 Thanks again for reading this README !!!
 

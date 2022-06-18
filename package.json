@@ -1,0 +1,62 @@
+{
+  "name": "jonitoh-ts-monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Minimal monorepo implementation with typescript and npm workspaces best suited for MERN stack",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "main": "npm run $npm_config_name --workspaces",
+    "demo": "echo \"Hello $npm_config_first\"",
+    "main:usage": "echo 'Specific values are: lint, prettier, test, dev, clean, compile, install and build' && exit 0",
+    "ws": "npm run $npm_config_name -w $npm_config_workspace",
+    "ws:usage": "echo 'Possible values are: lint, prettier, test, dev, clean, compile, install and build' && exit 0",
+    "clean": "rm -rf node_modules && npm run main --name=clean",
+    "postinstall": "node scripts/configure-references.js",
+    "compile": "npm run main --name=compile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonitoh/ts-monorepo.git"
+  },
+  "keywords": [
+    "typescript",
+    "monorepo",
+    "workspace",
+    "mern"
+  ],
+  "author": "TOH Ninsemou Jordan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jonitoh/ts-monorepo/issues"
+  },
+  "homepage": "https://github.com/jonitoh/ts-monorepo#readme",
+  "workspaces": [
+    "services/common",
+    "services/client",
+    "services/server"
+  ],
+  "devDependencies": {
+    "@types/node": "^17.0.42",
+    "@typescript-eslint/eslint-plugin": "^5.28.0",
+    "@typescript-eslint/parser": "^5.28.0",
+    "eslint": "^8.17.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-import-resolver-typescript": "^2.7.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "is-ci": "^3.0.1",
+    "prettier": "^2.7.0",
+    "ts-node": "^10.8.1",
+    "tsconfig-paths": "^4.0.0",
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.3"
+  },
+  "engines": {
+    "node": "17.0.1"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "name": "@jonitoh-ts-monorepo/server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "lint": "eslint . --config .eslintrc.json --ignore-path ../../.eslintignore --ext .ts --fix",
+    "prettier": "prettier --config '../../.prettierrc.json' --write '../**/*.ts'",
+    "postprettier": "rm ./node_modules/.cache/prettier/.prettier-cache",
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "dev": "NODE_ENV=development ts-node -r tsconfig-paths/register -r dotenv/config src/index.ts dotenv_config_path=../../.env dotenv_config_debug=true",
+    "clean": "rm -rf ./dist && rm -rf ./node_modules && rm -rf tsconfig.build.tsbuildinfo",
+    "compile": "tsc -b -p tsconfig.build.json",
+    "postcompile": "cp './package.json' ./dist/",
+    "build": "npm run clean && npm run compile",
+    "serve": "NODE_ENV=production node -r dotenv/config dist/src/index.js dotenv_config_path=../../.env",
+    "prepublishOnly": "npm run build",
+    "watch": "tsc -b -p tsconfig.build.json -w --preserveWatchOutput"
+  },
+  "repository": {
+    "type": "git",
+    "directory": "services/server",
+    "url": "git+https://github.com/jonitoh/ts-monorepo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jonitoh/ts-monorepo/issues"
+  },
+  "homepage": "https://github.com/jonitoh/ts-monorepo#readme",
+  "dependencies": {
+    "@jonitoh-ts-monorepo/common": "file:services/common",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.13"
+  }
+}

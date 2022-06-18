@@ -1,0 +1,46 @@
+/*** App Overall Structure ***/
+.app {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/*-- navbar area --*/
+.navbar {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 10%;
+    order: -1;
+    display: flex;
+}
+
+/*-- main area --*/
+.main {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 90%;
+    display: flex;
+    justify-content: space-around;
+    overflow: scroll;
+}
+
+/*** Media Queries ***/
+@media only screen and (max-width: 480px) {
+
+    /*** App Overall Structure ***/
+    .app {
+        flex-direction: column;
+    }
+
+    /*-- navbar area --*/
+    .navbar {
+        flex-basis: 0%;
+        order: 0;
+    }
+
+    /*-- main area --*/
+    .main {
+        flex-basis: 80%;
+    }
+}

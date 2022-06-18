@@ -1,0 +1,28 @@
+{
+  "extends": "../../tsconfig.build.json",
+  "include": ["src/**/*", "config/**/*"],
+  "exclude": ["node_modules", "dist"],
+  "references": [
+    {
+      "path": "../common/tsconfig.build.json"
+    }
+  ],
+  "compilerOptions": {
+    "composite": true,
+    "rootDir": "./src",
+    "declaration": true,
+    "outDir": "./dist",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "jsx": "react-jsx",
+    "module": "CommonJS",
+    "baseUrl": "src",
+    "paths": {
+      "#/*": ["*"],
+      "#components/*": ["components/*"],
+      "#utils/*": ["utils/*"],
+      "#services/*": ["services/*"]
+    },
+    "typeRoots": ["src/@types", "../../node_modules/@types"],
+    "types": ["react", "react-dom", "node"]
+  }
+}
