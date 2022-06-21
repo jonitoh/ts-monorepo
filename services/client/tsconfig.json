@@ -1,21 +1,46 @@
 {
-  "extends": "../../tsconfig.json",
-  "include": ["src/**/*", "config/**/*"],
-  "exclude": ["build"],
-  "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "jsx": "react-jsx",
-    "module": "CommonJS",
-    "baseUrl": "src",
-    "paths": {
-      "#/*": ["*"],
-      "#components/*": ["components/*"],
-      "#utils/*": ["utils/*"],
-      "#services/*": ["services/*"]
+    "extends": "../../tsconfig.json",
+    "include": [
+        "src/**/*",
+        "config/**/*"
+    ],
+    "exclude": [
+        "build"
+    ],
+    "compilerOptions": {
+        "lib": [
+            "dom",
+            "dom.iterable",
+            "esnext"
+        ],
+        "jsx": "react-jsx",
+        "module": "CommonJS",
+        "baseUrl": "src",
+        "paths": {
+            "#/*": [
+                "*"
+            ],
+            "#components/*": [
+                "components/*"
+            ],
+            "#utils/*": [
+                "utils/*"
+            ],
+            "#services/*": [
+                "services/*"
+            ]
+        },
+        "typeRoots": [
+            "src/@types",
+            "node_modules/@types",
+            "../../node_modules/@types"
+        ],
+        "types": [
+            "react",
+            "react-dom",
+            "node"
+        ],
+        "composite": true
     },
-    "typeRoots": ["src/@types", "node_modules/@types", "../../node_modules/@types"],
-    "types": ["react", "react-dom", "node"],
-    "composite": true
-  },
-  "references": []
+    "references": []
 }

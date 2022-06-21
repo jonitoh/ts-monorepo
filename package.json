@@ -10,7 +10,7 @@
     "main": "npm run $npm_config_name --workspaces",
     "demo": "echo \"Hello $npm_config_first\"",
     "main:usage": "echo 'Specific values are: lint, prettier, test, dev, clean, compile, install and build' && exit 0",
-    "ws": "npm run $npm_config_name -w $npm_config_workspace",
+    "ws": "npm run $npm_config_name --workspace=\"@jonitoh-ts-monorepo/${npm_config_service}\"",
     "ws:usage": "echo 'Possible values are: lint, prettier, test, dev, clean, compile, install and build' && exit 0",
     "clean": "rm -rf node_modules && npm run main --name=clean",
     "postinstall": "node scripts/configure-references.js",

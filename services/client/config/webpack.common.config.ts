@@ -97,12 +97,16 @@ function createCommonConfiguration(env: EnvArgs): Configuration {
         {
           test: /\.tsx?$/,
           exclude: /node_modules/,
-          use: 'ts-loader',
-          options: {
-            // disable type checker - we will use it in fork plugin
-            transpileOnly: true,
-            configFile: 'tsconfig.build.json',
-          },
+          use: [
+            {
+              loader: 'ts-loader',
+              options: {
+                // disable type checker - we will use it in fork plugin
+                transpileOnly: true,
+                configFile: 'tsconfig.build.json',
+              },
+            },
+          ],
         },
 
         // JavaScript: Use Babel to transpile JavaScript files
@@ -132,7 +136,7 @@ function createCommonConfiguration(env: EnvArgs): Configuration {
           test: /\.scss$/i,
           exclude: /\.module\.scss$/i,
           use: [
-            isDevMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+            { loader: isDevMode ? 'style-loader' : MiniCssExtractPlugin.loader },
             {
               loader: 'css-loader',
               options: {
@@ -146,7 +150,7 @@ function createCommonConfiguration(env: EnvArgs): Configuration {
                 },
               },
             },
-            'postcss-loader',
+            { loader: 'postcss-loader' },
             {
               loader: 'sass-loader',
               options: {
@@ -163,7 +167,7 @@ function createCommonConfiguration(env: EnvArgs): Configuration {
         {
           test: /\.module\.scss$/i,
           use: [
-            isDevMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+            { loader: isDevMode ? 'style-loader' : MiniCssExtractPlugin.loader },
             {
               loader: 'css-loader',
               options: {
@@ -177,6 +181,7 @@ function createCommonConfiguration(env: EnvArgs): Configuration {
                 },
               },
             },
+            { loader: 'postcss-loader' },
             {
               loader: 'sass-loader',
               options: {
