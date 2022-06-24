@@ -1,17 +1,11 @@
-.actionArea {
+.card {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.leftBtn {
-    margin-right: 0.25rem;
-}
-
-.rightBtn {
-    margin-left: 0.25rem;
-}
-
-.leftBtn,
-.rightBtn {
-    height: 2rem;
+.title,
+.btn {
+    padding-block: .25em;
 }

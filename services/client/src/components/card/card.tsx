@@ -9,17 +9,11 @@ export interface Props {
 
 export default function Card({ text, label, onClick }: Props) {
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.card}>
-        <div className={styles.infoContent}>
-          <div className={styles.text}>{text}</div>
-          <div className={styles.actionArea}>
-            <button type="button" onClick={onClick} className={styles.leftBtn}>
-              {label}
-            </button>
-          </div>
-        </div>
-      </div>
+    <div className={styles.card}>
+      <div className={styles.title}>{text}</div>
+      <button type="button" onClick={onClick} className={styles.btn}>
+        {label}
+      </button>
     </div>
   );
 }
