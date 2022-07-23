@@ -2,38 +2,38 @@
   "name": "@jonitoh-ts-monorepo/client",
   "version": "1.0.0",
   "description": "",
-  "main": "build/src/index",
-  "types": "build/src/index",
-  "files": [
-    "build"
-  ],
-  "scripts": {
-    "lint": "eslint . --config .eslintrc.json --ignore-path ../../.eslintignore --ext .ts --fix",
-    "prettier": "prettier --config '../../.prettierrc.json' --write '../**/*.ts'",
-    "postprettier": "rm ./node_modules/.cache/prettier/.prettier-cache",
-    "test": "echo \"Error: no test specified\" && exit 0",
-    "dev": "webpack serve --config ./config/webpack.config.ts --port 5000 --env mode=dev configPath=../../.env",
-    "clean": "rm -rf ./build && rm -rf ./node_modules && rm tsconfig.build.tsbuildinfo",
-    "compile": "tsc -b -p tsconfig.build.json",
-    "postcompile": "cp './package.json' ./build/",
-    "prebuild": "npm run clean && npm run compile",
-    "build": "webpack --config ./config/webpack.config.ts --env mode=prod configPath=../../.env addon=$npm_config_addon",
-    "prepublishOnly": "npm run build",
-    "start": "ts-node -r tsconfig-paths/register src/index.tsx",
-    "watch": "tsc -b -p tsconfig.build.json -w --preserveWatchOutput"
-  },
-  "repository": {
-    "type": "git",
-    "directory": "services/client",
-    "url": "git+https://github.com/jonitoh/ts-monorepo.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jonitoh/ts-monorepo/issues"
   },
+  "repository": {
+    "type": "git",
+    "directory": "services/client",
+    "url": "git+https://github.com/jonitoh/ts-monorepo.git"
+  },
   "homepage": "https://github.com/jonitoh/ts-monorepo#readme",
+  "engines": {
+    "node": "17.0.1"
+  },
+  "main": "build",
+  "typings": "build/index.d.ts",
+  "scripts": {
+    "lint": "eslint . --config .eslintrc.json --ignore-path ../../.eslintignore --ext .ts --fix",
+    "prettier": "prettier --config '../../.prettierrc' --write '../**/*.ts'",
+    "postprettier": "rm node_modules/.cache/prettier/.prettier-cache",
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "dev": "webpack serve --config ./config/webpack.config.ts --port 5000 --env mode=dev configPath=../../.env",
+    "clean": "rm -rf build && rm -rf node_modules && rm tsconfig.tsbuildinfo",
+    "compile": "tsc --build",
+    "postcompile": "cp 'package.json' build/",
+    "prebuild": "npm-run-all --sequential clean compile",
+    "build": "webpack --config ./config/webpack.config.ts --env mode=prod configPath=../../.env addon=$npm_config_addon",
+    "prepublishOnly": "npm run build",
+    "start": "ts-node -r tsconfig-paths/register src/index.tsx",
+    "watch": "tsc --build -w --preserveWatchOutput"
+  },
   "dependencies": {
     "@jonitoh-ts-monorepo/common": "file:services/common",
     "axios": "^0.27.2",

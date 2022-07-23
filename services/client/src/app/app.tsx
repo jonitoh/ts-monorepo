@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { toUpperCase } from '@jonitoh-ts-monorepo/common/src';
-import Card from '#components/card/card';
-import { getSharedValue } from '#services/api';
+import Card from '#/components/card/card';
+import { getSharedValue } from '#/services/api';
 import styles from './app.module.scss';
 
 export default function App() {

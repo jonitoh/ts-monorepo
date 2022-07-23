@@ -3,39 +3,44 @@
   "private": true,
   "version": "1.0.0",
   "description": "Minimal monorepo implementation with typescript and npm workspaces best suited for MERN stack",
-  "directories": {
-    "doc": "docs"
-  },
-  "scripts": {
-    "main": "npm run $npm_config_name --workspaces",
-    "demo": "echo \"Hello $npm_config_first\"",
-    "main:usage": "echo 'Specific values are: lint, prettier, test, dev, clean, compile, install and build' && exit 0",
-    "ws": "npm run $npm_config_name --workspace=\"@jonitoh-ts-monorepo/${npm_config_service}\"",
-    "ws:usage": "echo 'Possible values are: lint, prettier, test, dev, clean, compile, install and build' && exit 0",
-    "clean": "rm -rf node_modules && npm run main --name=clean",
-    "postinstall": "node scripts/configure-references.js",
-    "compile": "npm run main --name=compile",
-    "dev": "echo 'to be made'"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jonitoh/ts-monorepo.git"
-  },
   "keywords": [
     "typescript",
     "monorepo",
     "workspace",
     "mern"
   ],
+  "directories": {
+    "doc": "docs"
+  },
   "author": "TOH Ninsemou Jordan",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jonitoh/ts-monorepo/issues"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonitoh/ts-monorepo.git"
+  },
   "homepage": "https://github.com/jonitoh/ts-monorepo#readme",
+  "engines": {
+    "node": "17.0.1"
+  },
   "workspaces": [
     "services/*"
   ],
+  "scripts": {
+    "main": "npm run $npm_config_name --workspaces",
+    "main:usage": "echo 'Specific values are: lint, prettier, test, dev, clean, compile, install and build' && exit 0",
+    "ws": "npm run $npm_config_name --workspace=\"@jonitoh-ts-monorepo/${npm_config_service}\"",
+    "ws:usage": "echo 'Possible values are: lint, prettier, test, dev, clean, compile, install and build' && exit 0",
+    "clean": "rm -rf node_modules && npm run clean --workspaces",
+    "build": "tsc --build ./services",
+    "postinstall": "node scripts/configure-references.js",
+    "compile": "npm run compile --workspaces",
+    "dev": "npm-run-all --parallel 'ws -- --name=dev --service=client' 'ws -- --name=dev --service=server'",
+    "start": "npm-run-all --parallel 'ws -- --name=start --service=client' 'ws -- --name=start --service=server'"
+  },
+  "dependencies": {},
   "devDependencies": {
     "@types/node": "^17.0.42",
     "@typescript-eslint/eslint-plugin": "^5.28.0",
@@ -49,16 +54,11 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.0.0",
     "is-ci": "^3.0.1",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.7.0",
     "ts-node": "^10.8.1",
     "tsconfig-paths": "^4.0.0",
     "tslib": "^2.4.0",
     "typescript": "^4.7.3"
-  },
-  "engines": {
-    "node": "17.0.1"
-  },
-  "dependencies": {
-    "concurrently": "^7.2.2"
   }
 }

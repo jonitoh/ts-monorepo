@@ -15,7 +15,7 @@
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
-    "project": "./services/common/tsconfig.json"
+    "project": "./tsconfig.json"
   },
   "settings": {
     "import/extensions": [".js", ".jsx", ".ts", ".tsx"],

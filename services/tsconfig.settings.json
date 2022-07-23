@@ -15,8 +15,7 @@
     "strict": true,
     "noEmitOnError": true,
     "skipLibCheck": true,
-    "types": [],
-    "noEmit": false
-  },
-  "exclude": ["node_modules", "dist", ".vscode", "docs", "scripts", "**/*.test.ts"]
+    "noEmit": false,
+    "incremental": true
+  }
 }

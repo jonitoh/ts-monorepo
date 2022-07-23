@@ -17,12 +17,12 @@
     },
     "import/resolver": {
       "typescript": {
-        "alwaysTryTypes": true
-        // "project": "tsconfig.json"
+        "alwaysTryTypes": true,
+        "project": "./tsconfig.json"
       },
       "node": {
         "extensions": [".js", ".jsx", ".ts", ".tsx"],
-        "moduleDirectory": ["node_modules", "src/"]
+        "moduleDirectory": ["node_modules", "src"]
       },
       "webpack": {
         "config": {
@@ -39,7 +39,7 @@
       "jsx": true
     },
     "ecmaVersion": "latest",
-    // "project": "services/client/tsconfig.json",
+    "project": ["services/client/tsconfig.json", "services/client/config/tsconfig.json"],
     "sourceType": "module"
   },
   "plugins": ["import", "react", "@typescript-eslint", "react-hooks"],

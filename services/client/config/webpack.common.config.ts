@@ -103,7 +103,7 @@ function createCommonConfiguration(env: EnvArgs): Configuration {
               options: {
                 // disable type checker - we will use it in fork plugin
                 transpileOnly: true,
-                configFile: 'tsconfig.build.json',
+                // configFile: 'tsconfig.json',
               },
             },
           ],
