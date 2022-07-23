@@ -2,7 +2,7 @@ import express, { Response, Request, Application } from 'express'; // Import exp
 import { Server } from 'http';
 import path from 'path';
 import cors from 'cors';
-// import { toUpperCase as sharedFunction } from '@jonitoh-ts-monorepo/shared';
+import { toUpperCase as sharedFunction } from '@jonitoh-ts-monorepo/common/src';
 
 type SharedParams = {
   text: string;
@@ -62,12 +62,9 @@ export async function startServer(
   });
 
   // HELLO WORLD ROUTE
-  function s(t: string) {
-    return t;
-  }
   app.get('/shared/:text', (req: Request<SharedParams>, res: Response) => {
     const { text } = req.params;
-    const result = s(text); // sharedFunction(text);
+    const result = sharedFunction(text);
     res.send({ result });
   });
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import { toUpperCase } from '@jonitoh-ts-monorepo/common/src';
 import Card from '#components/card/card';
 import { getSharedValue } from '#services/api';
-// import { toUpperCase } from '@jonitoh-ts-monorepo/common';
 import styles from './app.module.scss';
 
 export default function App() {
@@ -11,8 +11,8 @@ export default function App() {
 
   async function onClick() {
     setLeftResult(await getSharedValue(word));
-    // setRightResult(toUpperCase(word));
-    setRightResult(word);
+    setRightResult(toUpperCase(word));
+    // setRightResult(word);
   }
   // onclick ça appelle lapi et ça donne le resultat
   return (

@@ -2,8 +2,8 @@
   "name": "@jonitoh-ts-monorepo/client",
   "version": "1.0.0",
   "description": "",
-  "main": "build/src/index.js",
-  "types": "build/src/index.d.ts",
+  "main": "build/src/index",
+  "types": "build/src/index",
   "files": [
     "build"
   ],

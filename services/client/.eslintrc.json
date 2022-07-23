@@ -17,8 +17,8 @@
     },
     "import/resolver": {
       "typescript": {
-        "alwaysTryTypes": true,
-        "project": "services/client/tsconfig.json"
+        "alwaysTryTypes": true
+        // "project": "tsconfig.json"
       },
       "node": {
         "extensions": [".js", ".jsx", ".ts", ".tsx"],
@@ -39,7 +39,7 @@
       "jsx": true
     },
     "ecmaVersion": "latest",
-    "project": "services/client/tsconfig.json",
+    // "project": "services/client/tsconfig.json",
     "sourceType": "module"
   },
   "plugins": ["import", "react", "@typescript-eslint", "react-hooks"],

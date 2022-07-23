@@ -8,11 +8,15 @@
     "allowJs": true,
     "checkJs": true,
     "declaration": true,
+    "declarationMap": true,
     "sourceMap": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "skipLibCheck": true
+    "noEmitOnError": true,
+    "skipLibCheck": true,
+    "types": [],
+    "noEmit": false
   },
   "exclude": ["node_modules", "dist", ".vscode", "docs", "scripts", "**/*.test.ts"]
 }

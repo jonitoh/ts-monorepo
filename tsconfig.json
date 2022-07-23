@@ -1,31 +1,30 @@
 {
     "extends": "./tsconfig.build.json",
     "compilerOptions": {
+        "baseUrl": ".",
         "paths": {
-            "@jonitoh-ts-monorepo/common": [
-                "services/common/src"
+            "@jonitoh-ts-monorepo/common/*": [
+                "services/common/src/*"
             ],
-            "@jonitoh-ts-monorepo/server": [
-                "services/server/src"
+            "@jonitoh-ts-monorepo/server/*": [
+                "services/server/src/*"
             ],
-            "@jonitoh-ts-monorepo/client": [
-                "services/client/src"
+            "@jonitoh-ts-monorepo/client/*": [
+                "services/client/src/*"
             ],
             "@jonitoh-ts-monorepo/*": [
                 "services/*/src"
             ]
-        }
+        },
+        "noEmit": true
     },
-    "exclude": [
-        "*.d.ts"
-    ],
     "files": [],
     "references": [
         {
-            "path": "services/common"
+            "path": "services/client"
         },
         {
-            "path": "services/client"
+            "path": "services/common"
         },
         {
             "path": "services/server"

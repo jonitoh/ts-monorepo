@@ -10,7 +10,6 @@
   "compilerOptions": {
     "composite": true,
     "rootDir": "./src",
-    "declaration": true,
     "outDir": "./dist",
     "lib": ["dom", "dom.iterable", "esnext"],
     "jsx": "react-jsx",
