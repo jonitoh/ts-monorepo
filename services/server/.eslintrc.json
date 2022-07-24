@@ -30,6 +30,8 @@
   },
   "plugins": ["@typescript-eslint"],
   "rules": {
+    "@typescript-eslint/no-unsafe-assignment": "warn",
+    "@typescript-eslint/no-unsafe-call": "warn",
     "import/prefer-default-export": "off",
     "default-param-last": "off",
     "@typescript-eslint/default-param-last": "off",

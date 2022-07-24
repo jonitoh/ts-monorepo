@@ -2,7 +2,7 @@ import express, { Response, Request, Application } from 'express'; // Import exp
 import { Server } from 'http';
 import path from 'path';
 import cors from 'cors';
-import { toUpperCase as sharedFunction } from '@jonitoh-ts-monorepo/common/src';
+import { toUpperCase as sharedFunction } from '@jonitoh-ts-monorepo/common';
 
 type SharedParams = {
   text: string;
@@ -72,10 +72,10 @@ export async function startServer(
   if (process.env.NODE_ENV && process.env.NODE_ENV !== 'development') {
     const monorepoMode = process.env.MONOREPO && process.env.MONOREPO === 'true';
     console.info(`monorepo Mode activated? ${monorepoMode ? 'YES' : 'NO'}`);
-    app.use(express.static(path.join(__dirname, '../dist/client')));
-    app.use(express.static(path.join(__dirname, '../dist/client/assets')));
+    app.use(express.static(path.join(__dirname, '../../client/dist')));
+    app.use(express.static(path.join(__dirname, '../../client/dist/assets')));
     app.get('*', (req: Request, res: Response) => {
-      res.sendFile(path.join(__dirname, '../dist/client/index.html'));
+      res.sendFile(path.join(__dirname, '../../client/dist/index.html'));
     });
   }
 
@@ -87,6 +87,9 @@ export async function startServer(
         console.info(`Listening on host ${usedServer.address || 'unknown'}`);
         if (usedServer.port && usedServer.address) {
           console.info(`Listening on http://${usedServer.address}:${usedServer.port}`);
+          console.info(
+            `Hello world route on http://${usedServer.address}:${usedServer.port}/hello-world`
+          );
         }
       }
       const originalClose = server.close.bind(server);
