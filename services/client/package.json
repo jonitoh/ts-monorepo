@@ -37,8 +37,8 @@
   "dependencies": {
     "@jonitoh-ts-monorepo/common": "file:services/common",
     "axios": "^0.27.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-hot-loader": "^4.13.0"
   },
   "devDependencies": {
@@ -50,11 +50,9 @@
     "@babel/runtime": "^7.18.3",
     "@svgr/webpack": "^6.2.1",
     "@types/dotenv-webpack": "^7.0.3",
-    "@types/fork-ts-checker-webpack-plugin": "^0.4.5",
-    "@types/mini-css-extract-plugin": "^2.5.1",
     "@types/postcss-preset-env": "^6.7.3",
-    "@types/react": "^18.0.14",
-    "@types/react-dom": "^18.0.5",
+    "@types/react": "^17.0.47",
+    "@types/react-dom": "^18.0.6",
     "@types/webpack-bundle-analyzer": "^4.4.1",
     "autoprefixer": "^10.4.7",
     "babel-loader": "^8.2.5",

@@ -17,7 +17,7 @@
   "engines": {
     "node": "17.0.1"
   },
-  "main": "dist",
+  "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
     "lint": "eslint . --config .eslintrc.json --ignore-path ../../.eslintignore --ext .ts --fix",
@@ -41,7 +41,6 @@
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
-    "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.13"
   }
 }
