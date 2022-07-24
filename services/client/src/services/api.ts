@@ -2,7 +2,7 @@
 Service for the server in the application.
 */
 import axios, { AxiosResponse } from 'axios';
-import { getApiUrl } from '#utils/service';
+import { getApiUrl } from '#/utils/service';
 
 const storageInstance = axios.create({
   baseURL: `${getApiUrl()}/shared`,

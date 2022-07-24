@@ -72,10 +72,10 @@ export async function startServer(
   if (process.env.NODE_ENV && process.env.NODE_ENV !== 'development') {
     const monorepoMode = process.env.MONOREPO && process.env.MONOREPO === 'true';
     console.info(`monorepo Mode activated? ${monorepoMode ? 'YES' : 'NO'}`);
-    app.use(express.static(path.join(__dirname, '../../client/dist')));
-    app.use(express.static(path.join(__dirname, '../../client/dist/assets')));
+    app.use(express.static(path.join(__dirname, '../../client/build')));
+    app.use(express.static(path.join(__dirname, '../../client/build/assets')));
     app.get('*', (req: Request, res: Response) => {
-      res.sendFile(path.join(__dirname, '../../client/dist/index.html'));
+      res.sendFile(path.join(__dirname, '../../client/build/index.html'));
     });
   }
 
