@@ -34,7 +34,7 @@
     "ws": "npm run $npm_config_name --workspace=\"@jonitoh-ts-monorepo/${npm_config_service}\"",
     "ws:usage": "echo 'Possible values are: lint, prettier, test, dev, clean, compile, install and build' && exit 0",
     "clean": "rm -rf node_modules && npm run clean --workspaces",
-    "build": "tsc --build ./services",
+    "build": "npm run build --workspaces",
     "postinstall": "node scripts/configure-references.js",
     "compile": "npm run compile --workspaces",
     "dev": "npm-run-all --parallel 'ws -- --name=dev --service=client' 'ws -- --name=dev --service=server'",

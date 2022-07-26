@@ -1,9 +1,7 @@
 {
   "extends": "../tsconfig.settings.json",
-  "include": ["src"],
-  "exclude": ["build"],
+  "exclude": ["config"],
   "compilerOptions": {
-    "composite": true,
     "rootDir": "src",
     "outDir": "build",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -14,7 +12,8 @@
       "#/*": ["*"]
     },
     "typeRoots": ["src/declaration.d.ts", "../../node_modules/@types"],
-    "types": ["react", "react-dom", "node"]
+    "types": ["react", "react-dom", "node"],
+    "composite": true
   },
   "references": [
     {

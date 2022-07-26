@@ -1,21 +1,16 @@
 {
   "compilerOptions": {
-    "composite": true,
     "target": "es6",
     "module": "commonjs",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "allowJs": true,
-    "checkJs": true,
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
+    "strict": true,
+    "composite": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "noEmitOnError": true,
-    "skipLibCheck": true,
-    "noEmit": false,
     "incremental": true
   }
 }

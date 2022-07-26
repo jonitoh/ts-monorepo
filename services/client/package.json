@@ -17,17 +17,15 @@
   "engines": {
     "node": "17.0.1"
   },
-  "main": "build",
+  "main": "build/index.js",
   "typings": "build/index.d.ts",
   "scripts": {
     "lint": "eslint . --config .eslintrc.json --ignore-path ../../.eslintignore --ext .ts --fix",
     "test": "echo \"Error: no test specified\" && exit 0",
     "dev": "webpack serve --config ./config/webpack.config.ts --port 5000 --env mode=dev configPath=../../.env",
-    "clean": "rm -rf build && rm tsconfig.tsbuildinfo TOCHANGE",
-    "compile": "tsc --build TOCHANGE",
-    "postcompile": "cp 'package.json' build/ TOCHANGE",
-    "prebuild": "echo 'npm-run-all --sequential clean compile TOCHANGE'",
-    "build": "webpack --config ./config/webpack.config.ts --env mode=prod configPath=../../.env addon=$npm_config_addon",
+    "clean": "rm -rf build",
+    "compile": "webpack --config ./config/webpack.config.ts --env mode=prod configPath=../../.env addon=$npm_config_addon",
+    "build": "npm-run-all --sequential clean compile",
     "prepublishOnly": "npm run build",
     "start": "ts-node -r tsconfig-paths/register src/index.tsx",
     "watch": "tsc --build -w --preserveWatchOutput"

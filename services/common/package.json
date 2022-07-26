@@ -25,7 +25,6 @@
     "dev": "NODE_ENV=development ts-node -r tsconfig-paths/register -r dotenv/config src/index.ts dotenv_config_path=../../.env dotenv_config_debug=true",
     "clean": "rm -rf dist && rm tsconfig.tsbuildinfo",
     "compile": "tsc --build",
-    "postcompile": "cp 'package.json' dist/",
     "build": "npm-run-all --sequential clean compile",
     "prestart": "npm run build",
     "start": "node -r dotenv/config dist/index.js dotenv_config_path=../../.env",

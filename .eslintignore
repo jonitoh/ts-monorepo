@@ -19,6 +19,8 @@ dist/
 build/
 **/build/
 
+*/**.d.ts
+
 # macOS folder
 .DS_Store
 
