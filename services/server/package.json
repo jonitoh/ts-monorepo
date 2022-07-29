@@ -15,7 +15,8 @@
   },
   "homepage": "https://github.com/jonitoh/ts-monorepo#readme",
   "engines": {
-    "node": "17.0.1"
+    "node": "17.0.1",
+    "npm": "8.1.0"
   },
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
