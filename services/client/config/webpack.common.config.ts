@@ -64,6 +64,7 @@ function createCommonConfiguration(env: EnvArgs): Configuration {
       // Load environment variables
       new Dotenv({
         path: `${env.configPath}`,
+        systemvars: true,
       }),
 
       // Check ESLint in runtime

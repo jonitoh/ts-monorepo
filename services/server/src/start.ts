@@ -73,7 +73,7 @@ export async function startServer(
     const monorepoMode = process.env.MONOREPO && process.env.MONOREPO === 'true';
     console.info(`monorepo Mode activated? ${monorepoMode ? 'YES' : 'NO'}`);
     app.use(express.static(path.join(__dirname, '../../client/build')));
-    app.use(express.static(path.join(__dirname, '../../client/build/assets')));
+    // app.use(express.static(path.join(__dirname, '../../client/build/assets')));
     app.get('*', (req: Request, res: Response) => {
       res.sendFile(path.join(__dirname, '../../client/build/index.html'));
     });

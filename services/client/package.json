@@ -22,13 +22,14 @@
   "scripts": {
     "lint": "eslint . --config .eslintrc.json --ignore-path ../../.eslintignore --ext .ts --fix",
     "test": "echo \"Error: no test specified\" && exit 0",
-    "dev": "webpack serve --config ./config/webpack.config.ts --port 5000 --env mode=dev configPath=../../.env",
-    "clean": "rm -rf build",
-    "compile": "webpack --config ./config/webpack.config.ts --env mode=prod configPath=../../.env addon=$npm_config_addon",
+    "dev": "NODE_ENV=development webpack serve --mode development --config ./config/webpack.config.ts --env configPath=../../.env",
+    "clean": "rimraf build",
+    "compile": "NODE_ENV=production webpack --mode production --config ./config/webpack.config.ts --env configPath=../../.env addon=$npm_config_addon",
     "build": "npm-run-all --sequential clean compile",
     "prepublishOnly": "npm run build",
-    "start": "ts-node -r tsconfig-paths/register src/index.tsx",
-    "watch": "tsc --build -w --preserveWatchOutput"
+    "start": "npm run dev",
+    "watch": "npm run dev",
+    "serve": "npm run build && serve -s build"
   },
   "dependencies": {
     "@jonitoh-ts-monorepo/common": "1.0.0",
