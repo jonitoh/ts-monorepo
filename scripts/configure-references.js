@@ -6,7 +6,8 @@ const exec = util.promisify(require('child_process').exec);
 const path = require('path');
 const isCI = require('is-ci');
 
-const config = JSON.parse(fs.readFileSync('services/tsconfig.json').toString());
+const mainTsConfig = 'services/tsconfig.json';
+const config = JSON.parse(fs.readFileSync(mainTsConfig).toString());
 config.files = [];
 config.references = [];
 
@@ -45,5 +46,5 @@ config.references = [];
       fs.writeFileSync(tsconfigPath, JSON.stringify(workspaceConfig, undefined, 4));
     }
   }
-  fs.writeFileSync('tsconfig.json', JSON.stringify(config, undefined, 4));
+  fs.writeFileSync(mainTsConfig, JSON.stringify(config, undefined, 4));
 })();
