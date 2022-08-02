@@ -2,13 +2,13 @@
     "files": [],
     "references": [
         {
-            "path": "services/client"
+            "path": "client"
         },
         {
-            "path": "services/common"
+            "path": "common"
         },
         {
-            "path": "services/server"
+            "path": "server"
         }
     ]
 }

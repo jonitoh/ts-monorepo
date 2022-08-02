@@ -125,12 +125,12 @@ This README is an example of what my template can create.
 
 # <a id="features">🎯&nbsp;</a> Features
 
-- [x] Add Emoji
-- [x] Add back to top links
-- [ ] Add relevant gifs for this README
-- [x] Multi-language Support
-  - [x] French
-  - [x] English
+-   [x] Add Emoji
+-   [x] Add back to top links
+-   [ ] Add relevant gifs for this README
+-   [x] Multi-language Support
+    -   [x] French
+    -   [x] English
 
 <!-- back to top -->
 <p align="right">
@@ -141,7 +141,7 @@ This README is an example of what my template can create.
 
 # <a id="limits">⚠️&nbsp;</a> Limitations
 
-- For now, the README is not too specific.
+-   For now, the README is not too specific.
 
 <!-- back to top -->
 <p align="right">
@@ -182,14 +182,14 @@ This project is released under the terms of the [MIT License](LICENSE).
 
 🏆 Here are the nominees, with no particular order, in the category for **_best resources used for this project_**:
 
-- [Monorepo Setup with NPM and TypeScript](https://javascript.plainenglish.io/monorepo-setup-with-npm-and-typescript-90b329ba7275)
-- [Monorepo II](https://blog.ah.technology/a-guide-through-the-wild-wild-west-of-setting-up-a-mono-repo-with-typescript-lerna-and-yarn-ed6a1e5467a)
-- [Img Shields](https://shields.io) for those beautiful badges !
-- [HTML code generator](https://www.html-code-generator.com/svg/country-flags) for the flag
-- [SVG Repo](https://www.svgrepo.com/) for the icons used here aka the logo and the back to top icon.
-- [Awesome README](https://github.com/matiassingers/awesome-readme): a curated list of awesome READMEs!
-- [Best-README-Template](https://github.com/othneildrew/Best-README-Template): another README template you can check it out.
-- [Fiber](https://github.com/gofiber/fiber) for their multilingual README.
+-   [Monorepo Setup with NPM and TypeScript](https://javascript.plainenglish.io/monorepo-setup-with-npm-and-typescript-90b329ba7275)
+-   [Monorepo II](https://blog.ah.technology/a-guide-through-the-wild-wild-west-of-setting-up-a-mono-repo-with-typescript-lerna-and-yarn-ed6a1e5467a)
+-   [Img Shields](https://shields.io) for those beautiful badges !
+-   [HTML code generator](https://www.html-code-generator.com/svg/country-flags) for the flag
+-   [SVG Repo](https://www.svgrepo.com/) for the icons used here aka the logo and the back to top icon.
+-   [Awesome README](https://github.com/matiassingers/awesome-readme): a curated list of awesome READMEs!
+-   [Best-README-Template](https://github.com/othneildrew/Best-README-Template): another README template you can check it out.
+-   [Fiber](https://github.com/gofiber/fiber) for their multilingual README.
 
 <!-- back to the top -->
 <p align="right">

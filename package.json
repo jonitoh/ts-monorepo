@@ -1,68 +1,71 @@
 {
-  "name": "jonitoh-ts-monorepo",
-  "private": true,
-  "version": "1.0.0",
-  "description": "Minimal monorepo implementation with typescript and npm workspaces best suited for MERN stack",
-  "keywords": [
-    "typescript",
-    "monorepo",
-    "workspace",
-    "mern"
-  ],
-  "directories": {
-    "doc": "docs"
-  },
-  "author": "TOH Ninsemou Jordan",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jonitoh/ts-monorepo/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jonitoh/ts-monorepo.git"
-  },
-  "homepage": "https://github.com/jonitoh/ts-monorepo#readme",
-  "engines": {
-    "node": "17.0.1",
-    "npm": "8.1.0"
-  },
-  "workspaces": [
-    "services/*"
-  ],
-  "scripts": {
-    "main": "npm run $npm_config_name --workspaces",
-    "main:usage": "echo 'Specific values are: lint, prettier, test, dev, clean, compile, install and build' && exit 0",
-    "ws": "npm run $npm_config_name --workspace=\"@jonitoh-ts-monorepo/${npm_config_service}\"",
-    "ws:usage": "echo 'Possible values are: lint, prettier, test, dev, clean, compile, install and build' && exit 0",
-    "clean": "npm run clean --workspaces && rimraf node_modules",
-    "build": "npm run build --workspaces",
-    "postinstall": "node scripts/configure-references.js",
-    "compile": "npm run compile --workspaces",
-    "dev": "npm-run-all --parallel 'ws -- --name=dev --service=client' 'ws -- --name=dev --service=server'",
-    "heroku-postbuild": "npm run build",
-    "start": "npm run ws --name=start --service=server"
-  },
-  "devDependencies": {
-    "@types/node": "^17.0.45",
-    "@typescript-eslint/eslint-plugin": "^5.28.0",
-    "@typescript-eslint/parser": "^5.28.0",
-    "eslint": "^8.17.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-airbnb-typescript": "^17.0.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-import-resolver-alias": "^1.1.2",
-    "eslint-import-resolver-typescript": "^2.7.1",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "is-ci": "^3.0.1",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.7.0",
-    "rimraf": "^3.0.2",
-    "serve": "^14.0.1",
-    "ts-node": "^10.8.1",
-    "tsconfig-paths": "^4.0.0",
-    "tslib": "^2.4.0",
-    "typescript": "^4.7.3",
-    "yarn": "^1.22.19"
-  }
+    "name": "jonitoh-ts-monorepo",
+    "private": true,
+    "version": "1.0.0",
+    "description": "Minimal monorepo implementation with typescript and npm workspaces best suited for MERN stack",
+    "keywords": [
+        "typescript",
+        "monorepo",
+        "workspace",
+        "mern"
+    ],
+    "directories": {
+        "doc": "docs"
+    },
+    "author": "TOH Ninsemou Jordan",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/jonitoh/ts-monorepo/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jonitoh/ts-monorepo.git"
+    },
+    "homepage": "https://github.com/jonitoh/ts-monorepo#readme",
+    "engines": {
+        "node": "17.0.1",
+        "npm": "8.1.0"
+    },
+    "workspaces": [
+        "services/*"
+    ],
+    "scripts": {
+        "main": "npm run $npm_config_name --workspaces",
+        "main:usage": "echo 'Specific values are: lint, prettier, test, dev, clean, compile, install and build' && exit 0",
+        "ws": "npm run $npm_config_name --workspace=\"@jonitoh-ts-monorepo/${npm_config_service}\"",
+        "ws:usage": "echo 'Possible values are: lint, prettier, test, dev, clean, compile, install and build' && exit 0",
+        "clean": "npm run clean --workspaces && rimraf node_modules",
+        "build": "npm run build --workspaces",
+        "postinstall": "node scripts/configure-references.js",
+        "compile": "npm run compile --workspaces",
+        "dev": "npm-run-all --parallel 'ws --name=dev --service=client' 'ws --name=dev --service=server'",
+        "heroku-postbuild": "npm run build",
+        "start": "npm run ws --name=start --service=server",
+        "prepare": "husky install"
+    },
+    "devDependencies": {
+        "@types/node": "^17.0.45",
+        "@typescript-eslint/eslint-plugin": "^5.28.0",
+        "@typescript-eslint/parser": "^5.28.0",
+        "eslint": "^8.17.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-config-airbnb-typescript": "^17.0.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-import-resolver-alias": "^1.1.2",
+        "eslint-import-resolver-typescript": "^2.7.1",
+        "eslint-plugin-import": "^2.26.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "husky": "^8.0.1",
+        "is-ci": "^3.0.1",
+        "lint-staged": "^13.0.3",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.7.1",
+        "rimraf": "^3.0.2",
+        "serve": "^14.0.1",
+        "ts-node": "^10.8.1",
+        "tsconfig-paths": "^4.0.0",
+        "tslib": "^2.4.0",
+        "typescript": "^4.7.3",
+        "yarn": "^1.22.19"
+    }
 }

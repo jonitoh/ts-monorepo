@@ -1,63 +1,17 @@
 {
-  "env": {
-    "browser": true,
-    "commonjs": true,
-    "es2021": true
-  },
-  "extends": [
-    "airbnb-base",
-    "airbnb-typescript/base",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "eslint:recommended",
-    "prettier"
-  ],
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaVersion": "latest",
-    "project": "./tsconfig.json"
-  },
-  "settings": {
-    "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
-    "import/parsers": {
-      "@typescript-eslint/parser": [".ts", ".tsx"]
+    "root": true,
+    "extends": ["../.eslintrc.json"],
+    "settings": {
+        "import/resolver": {
+            "typescript": {
+                "alwaysTryTypes": true,
+                "project": ["./tsconfig.json"],
+                "sourceType": "module"
+            }
+        }
     },
-    "import/resolver": {
-      "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
-      }
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "project": ["./tsconfig.json"]
     }
-  },
-  "plugins": ["@typescript-eslint"],
-  "rules": {
-    "@typescript-eslint/no-unsafe-assignment": "warn",
-    "@typescript-eslint/no-unsafe-call": "warn",
-    "import/prefer-default-export": "off",
-    "default-param-last": "off",
-    "@typescript-eslint/default-param-last": "off",
-    "consistent-return": "off",
-    "no-console": "off",
-    "max-len": [
-      "error",
-      {
-        "code": 100,
-        "tabWidth": 2,
-        "comments": 100,
-        "ignoreComments": true,
-        "ignoreTrailingComments": true,
-        "ignoreUrls": true,
-        "ignoreStrings": true,
-        "ignoreTemplateLiterals": true,
-        "ignoreRegExpLiterals": true
-      }
-    ],
-    "no-underscore-dangle": "off",
-    "arrow-body-style": ["error", "as-needed"],
-    // Use function hoisting to improve code readability
-    "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": [
-      "warn",
-      { "functions": false, "classes": true, "variables": true, "typedefs": true }
-    ]
-  }
 }

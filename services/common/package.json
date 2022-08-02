@@ -1,35 +1,41 @@
 {
-  "name": "@jonitoh-ts-monorepo/common",
-  "version": "1.0.0",
-  "description": "",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jonitoh/ts-monorepo/issues"
-  },
-  "repository": {
-    "type": "git",
-    "directory": "services/common",
-    "url": "git+https://github.com/jonitoh/ts-monorepo.git"
-  },
-  "homepage": "https://github.com/jonitoh/ts-monorepo#readme",
-  "engines": {
-    "node": "17.0.1",
-    "npm": "8.1.0"
-  },
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "scripts": {
-    "lint": "eslint . --config .eslintrc.json --ignore-path ../../.eslintignore --ext .ts --fix",
-    "test": "echo \"Error: no test specified\" && exit 0",
-    "dev": "NODE_ENV=development ts-node -r tsconfig-paths/register -r dotenv/config src/index.ts dotenv_config_path=../../.env dotenv_config_debug=true",
-    "clean": "rimraf dist tsconfig.tsbuildinfo",
-    "compile": "tsc --build",
-    "build": "npm-run-all --sequential clean compile",
-    "prestart": "npm run build",
-    "start": "node -r dotenv/config dist/index.js dotenv_config_path=../../.env",
-    "prepublishOnly": "npm run build",
-    "watch": "tsc --build -w --preserveWatchOutput"
-  }
+    "name": "@jonitoh-ts-monorepo/common",
+    "version": "1.0.0",
+    "description": "",
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/jonitoh/ts-monorepo/issues"
+    },
+    "repository": {
+        "type": "git",
+        "directory": "services/common",
+        "url": "git+https://github.com/jonitoh/ts-monorepo.git"
+    },
+    "homepage": "https://github.com/jonitoh/ts-monorepo#readme",
+    "engines": {
+        "node": "17.0.1",
+        "npm": "8.1.0"
+    },
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts",
+    "scripts": {
+        "format": "prettier --config ../../.prettierrc --ignore-path ../../.prettierignore 'src/*.ts' '**/*.json'",
+        "postformat": "rimraf node_modules",
+        "format:fix": "prettier --config ../../.prettierrc --ignore-path ../../.prettierignore --write 'src/*.ts' '**/*.json'",
+        "postformat:fix": "rimraf node_modules",
+        "lint": "eslint --ignore-path ../../.eslintignore --ext .ts,.js",
+        "lint:fix": "eslint --ignore-path ../../.eslintignore --ext .ts,.js --fix",
+        "verify": "npm-run-all --sequential format:fix lint:fix",
+        "test": "echo 'Error: no test specified'",
+        "dev": "NODE_ENV=development ts-node -r tsconfig-paths/register -r dotenv/config src/index.ts dotenv_config_path=../../.env dotenv_config_debug=true",
+        "clean": "rimraf dist tsconfig.tsbuildinfo",
+        "compile": "tsc --build",
+        "build": "npm-run-all --sequential clean compile",
+        "prestart": "npm run build",
+        "start": "node -r dotenv/config dist/index.js dotenv_config_path=../../.env",
+        "prepublishOnly": "npm run build",
+        "watch": "tsc --build -w --preserveWatchOutput"
+    }
 }
