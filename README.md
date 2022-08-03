@@ -184,6 +184,7 @@ This project is released under the terms of the [MIT License](LICENSE).
 
 -   [Monorepo Setup with NPM and TypeScript](https://javascript.plainenglish.io/monorepo-setup-with-npm-and-typescript-90b329ba7275)
 -   [Monorepo II](https://blog.ah.technology/a-guide-through-the-wild-wild-west-of-setting-up-a-mono-repo-with-typescript-lerna-and-yarn-ed6a1e5467a)
+-   [Webpack in production for heroku](https://dev.to/ellehallal/how-to-deploy-a-web-app-to-heroku-2f4l)
 -   [Img Shields](https://shields.io) for those beautiful badges !
 -   [HTML code generator](https://www.html-code-generator.com/svg/country-flags) for the flag
 -   [SVG Repo](https://www.svgrepo.com/) for the icons used here aka the logo and the back to top icon.

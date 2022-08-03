@@ -2,10 +2,10 @@
     "files": [],
     "references": [
         {
-            "path": "client"
+            "path": "common"
         },
         {
-            "path": "common"
+            "path": "client"
         },
         {
             "path": "server"

@@ -27,7 +27,9 @@
         "npm": "8.1.0"
     },
     "workspaces": [
-        "services/*"
+        "services/common",
+        "services/client",
+        "services/server"
     ],
     "scripts": {
         "main": "npm run $npm_config_name --workspaces",
@@ -35,6 +37,7 @@
         "ws": "npm run $npm_config_name --workspace=\"@jonitoh-ts-monorepo/${npm_config_service}\"",
         "ws:usage": "echo 'Possible values are: lint, prettier, test, dev, clean, compile, install and build' && exit 0",
         "clean": "npm run clean --workspaces && rimraf node_modules",
+        "purge": "rimraf package-lock.json && npm run clean",
         "build": "npm run build --workspaces",
         "postinstall": "node scripts/configure-references.js",
         "compile": "npm run compile --workspaces",

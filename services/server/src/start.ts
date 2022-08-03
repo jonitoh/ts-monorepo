@@ -4,6 +4,15 @@ import path from "path";
 import cors from "cors";
 import { toUpperCase as sharedFunction } from "@jonitoh-ts-monorepo/common";
 
+if (process.env.NODE_ENV === "development") {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call, global-require, @typescript-eslint/no-var-requires
+    require("dotenv").config({
+        path: process.env.NODE_DOTENV_PATH || ".env",
+        debug: process.env.NODE_DOTENV_DEBUG === "true",
+        override: true,
+    });
+}
+
 type SharedParams = {
     text: string;
 };

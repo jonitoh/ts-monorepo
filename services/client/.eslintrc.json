@@ -10,7 +10,7 @@
             "jsx": true
         },
         "ecmaVersion": "latest",
-        "project": ["./tsconfig.json", "./config/tsconfig.json"]
+        "project": ["./tsconfig.eslint.json"]
     },
     "settings": {
         "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
@@ -23,7 +23,7 @@
             },
             "typescript": {
                 "alwaysTryTypes": true,
-                "project": ["./tsconfig.json", "./config/tsconfig.json"]
+                "project": ["./tsconfig.eslint.json"]
             },
             "webpack": {
                 "config": {

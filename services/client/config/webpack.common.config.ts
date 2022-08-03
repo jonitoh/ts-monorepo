@@ -6,7 +6,6 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import ESLintPlugin from "eslint-webpack-plugin";
 import { merge } from "webpack-merge";
-import Dotenv from "dotenv-webpack";
 import {
     paths,
     EnvArgs,
@@ -24,6 +23,9 @@ function createCommonConfiguration(env: EnvArgs): Configuration {
 
         devtool: isDevMode ? "eval-source-map" : "source-map",
 
+        // no need to instantiate it with NODE_ENV
+        mode: isDevMode ? "development" : "production",
+
         optimization: {
             usedExports: true,
         },
@@ -37,58 +39,54 @@ function createCommonConfiguration(env: EnvArgs): Configuration {
         },
 
         // Customize the webpack build process
-        plugins: [
-            // Removes/cleans build folders and unused assets when rebuilding
-            new CleanWebpackPlugin(),
+        plugins: (
+            [
+                // Removes/cleans build folders and unused assets when rebuilding
+                new CleanWebpackPlugin(),
 
-            // Copies files from target to destination folder
-            new CopyWebpackPlugin({
-                patterns: [
-                    // keep the assets folder as-is
-                    {
-                        from: paths.assets,
-                        to: "assets",
-                    },
-                ],
-            }),
+                // Copies files from target to destination folder
+                new CopyWebpackPlugin({
+                    patterns: [
+                        // keep the assets folder as-is
+                        {
+                            from: paths.assets,
+                            to: "assets",
+                        },
+                    ],
+                }),
 
-            // Generates an HTML file from a template
-            // Generates deprecation warning: https://github.com/jantimon/html-webpack-plugin/issues/1501
-            new HtmlWebpackPlugin({
-                title: "Monorepo Typescript",
-                // favicon: `${paths.assets}/favicon.png`,
-                template: `${paths.src}/template.html`, // template file
-                filename: `${paths.build}/index.html`, // output file
-            }),
+                // Generates an HTML file from a template
+                // Generates deprecation warning: https://github.com/jantimon/html-webpack-plugin/issues/1501
+                new HtmlWebpackPlugin({
+                    title: "Monorepo Typescript",
+                    // favicon: `${paths.assets}/favicon.png`,
+                    template: `${paths.src}/template.html`, // template file
+                    filename: `${paths.build}/index.html`, // output file
+                }),
 
-            // Load environment variables
-            new Dotenv({
-                path: env.configPath ? `${env.configPath}` : undefined,
-                systemvars: true,
-            }),
+                // Check ESLint in runtime
+                new ESLintPlugin({
+                    extensions: ["js", "jsx", "ts", "tsx"],
+                    emitError: true,
+                    emitWarning: false,
+                    failOnError: false,
+                    failOnWarning: false,
+                }),
 
-            // Check ESLint in runtime
-            new ESLintPlugin({
-                extensions: ["js", "jsx", "ts", "tsx"],
-                emitError: true,
-                emitWarning: false,
-                failOnError: false,
-                failOnWarning: false,
-            }),
-
-            // Check Typescript in runtime
-            new ForkTsCheckerWebpackPlugin({
-                async: false,
-            }),
-        ].concat(
-            isDevMode
+                // Check Typescript in runtime
+                new ForkTsCheckerWebpackPlugin({
+                    async: false,
+                }),
+            ] as NonNullable<Configuration["plugins"]>
+        ).concat(
+            (isDevMode
                 ? []
                 : [
                       new MiniCssExtractPlugin({
                           filename: "[name].[contenthash].css",
                           chunkFilename: "[id].[contenthash].css",
                       }),
-                  ],
+                  ]) as NonNullable<Configuration["plugins"]>,
         ),
 
         // Determine how modules within the project are treated

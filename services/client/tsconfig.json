@@ -1,19 +1,34 @@
 {
     "extends": "../tsconfig.settings.json",
-    "exclude": ["config"],
+    "exclude": [
+        "config"
+    ],
     "compilerOptions": {
         "composite": true,
         "rootDir": "src",
         "outDir": "build",
-        "lib": ["dom", "dom.iterable", "esnext"],
+        "lib": [
+            "dom",
+            "dom.iterable",
+            "esnext"
+        ],
         "jsx": "react-jsx",
         "module": "CommonJS",
         "baseUrl": "src",
         "paths": {
-            "#/*": ["*"]
+            "#/*": [
+                "*"
+            ]
         },
-        "typeRoots": ["src/declaration.d.ts", "../../node_modules/@types"],
-        "types": ["react", "react-dom", "node"]
+        "typeRoots": [
+            "src/declaration.d.ts",
+            "../../node_modules/@types"
+        ],
+        "types": [
+            "react",
+            "react-dom",
+            "node"
+        ]
     },
     "references": [
         {

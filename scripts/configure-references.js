@@ -27,13 +27,16 @@ config.references = [];
     for (const name in workspaces) {
         const workspace = workspaces[name];
         const location = path.resolve(process.cwd(), workspace.location);
-        const tsconfigPath = path.resolve(location, "tsconfig.json");
-        if (fs.existsSync(tsconfigPath)) {
-            console.info("existing file: ", tsconfigPath, "\n---------------");
+
+        console.info("----- location:", location, "-----");
+        const majorTsconfigPath = path.resolve(location, "tsconfig.json");
+
+        if (fs.existsSync(majorTsconfigPath)) {
+            console.info("major tsconfig file: ", majorTsconfigPath);
             config.references.push({
                 path: path.relative(mainDirConfig, location), // workspace.location,
             });
-            const workspaceConfig = JSON.parse(fs.readFileSync(tsconfigPath).toString());
+            const workspaceConfig = JSON.parse(fs.readFileSync(majorTsconfigPath).toString());
             workspaceConfig.compilerOptions.composite = true;
             workspaceConfig.references = [];
             for (const dependency of workspace.workspaceDependencies) {
@@ -47,7 +50,24 @@ config.references = [];
                     });
                 }
             }
-            fs.writeFileSync(tsconfigPath, JSON.stringify(workspaceConfig, undefined, 4));
+
+            const files = fs
+                .readdirSync(location)
+                .filter((f) => f.startsWith("tsconfig.") && f.endsWith(".json"));
+            console.info("any other tsconfig files ?");
+
+            for (const file of files) {
+                const tsconfigPath = path.resolve(location, file);
+                if (!fs.lstatSync(tsconfigPath).isDirectory() && file !== "tsconfig.json") {
+                    if (fs.existsSync(tsconfigPath)) {
+                        console.info("-->", tsconfigPath);
+                        fs.writeFileSync(
+                            tsconfigPath,
+                            JSON.stringify(workspaceConfig, undefined, 4),
+                        );
+                    }
+                }
+            }
         }
     }
     fs.writeFileSync(mainTsConfig, JSON.stringify(config, undefined, 4));
