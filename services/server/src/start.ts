@@ -4,7 +4,7 @@ import path from "path";
 import cors from "cors";
 import { toUpperCase as sharedFunction } from "@jonitoh-ts-monorepo/common";
 
-if (process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV === "development" || process.env.NODE_DOTENV_FORCE === "true") {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call, global-require, @typescript-eslint/no-var-requires
     require("dotenv").config({
         path: process.env.NODE_DOTENV_PATH || ".env",

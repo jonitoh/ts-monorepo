@@ -33,7 +33,8 @@
         "clean": "rimraf dist tsconfig.tsbuildinfo",
         "compile": "tsc --build",
         "build": "npm-run-all --sequential clean compile",
-        "start": "NODE_ENV=development NODE_DOTENV_PATH=../../.env node -r tsconfig-paths/register dist/index.js",
+        "start": "NODE_ENV=production node dist/index.js",
+        "start:dev": "cross-env NODE_ENV=development NODE_DOTENV_PATH=../../.env NODE_DOTENV_FORCE=true npm run start",
         "prepublishOnly": "npm run build",
         "watch": "tsc --build -w --preserveWatchOutput"
     },
