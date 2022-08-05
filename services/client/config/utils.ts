@@ -52,16 +52,10 @@ export function getAddons(addonsArgs: string | undefined | string[]) {
 export type CreateConfiguration = (env: EnvArgs) => Configuration;
 
 export function checkIfDevMode(env: EnvArgs): boolean {
-    return env.WEBPACK_SERVE;
+    return process.env.NODE_ENV === "development";
 }
 
 export function getChosenCreateConfiguration(env: EnvArgs): Configuration {
-    if (!env.WEBPACK_BUILD && !env.WEBPACK_SERVE && !env.WEBPACK_WATCH) {
-        throw new Error(
-            "We can choose the right mode between 'production', 'development' and 'watch'",
-        );
-    }
-
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, import/no-dynamic-require, global-require, @typescript-eslint/no-var-requires
     const createConfiguration = require(`./webpack.${
         checkIfDevMode(env) ? "dev" : "prod"

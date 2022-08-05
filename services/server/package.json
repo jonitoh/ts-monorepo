@@ -21,9 +21,9 @@
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
     "scripts": {
-        "format": "prettier --config ../../.prettierrc --ignore-path ../../.prettierignore 'src/*.ts' '**/*.json'",
+        "format": "prettier --config ../../.prettierrc --ignore-path ../../.prettierignore 'src/*.ts'",
         "postformat": "rimraf node_modules",
-        "format:fix": "prettier --config ../../.prettierrc --ignore-path ../../.prettierignore --write 'src/*.ts' '**/*.json'",
+        "format:fix": "prettier --config ../../.prettierrc --ignore-path ../../.prettierignore --write 'src/*.ts'",
         "postformat:fix": "rimraf node_modules",
         "lint": "eslint --ignore-path ../../.eslintignore --ext .ts,.js",
         "lint:fix": "eslint --ignore-path ../../.eslintignore --ext .ts,.js --fix",
@@ -34,7 +34,7 @@
         "compile": "tsc --build",
         "build": "npm-run-all --sequential clean compile",
         "start": "NODE_ENV=production node dist/index.js",
-        "start:dev": "cross-env NODE_ENV=development NODE_DOTENV_PATH=../../.env NODE_DOTENV_FORCE=true npm run start",
+        "start:dev": "NODE_ENV=development NODE_DOTENV_PATH=../../.env NODE_DOTENV_DEBUG=true node dist/index.js",
         "prepublishOnly": "npm run build",
         "watch": "tsc --build -w --preserveWatchOutput"
     },

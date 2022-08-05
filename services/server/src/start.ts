@@ -50,7 +50,7 @@ function setupCloseOnExit(server: Server): void {
 }
 
 export async function startServer(
-    port: number = parseFloat(process.env.SERVER_PORT || "4000"),
+    port: number = parseFloat(process.env.SERVER_PORT || "5001"),
     host: string = process.env.SERVER_HOST || "127.0.0.1",
 ): Promise<Server> {
     // Initiate express app

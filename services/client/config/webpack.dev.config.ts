@@ -3,14 +3,20 @@ import { paths, EnvArgs, Configuration } from "./utils";
 
 export default function createConfiguration(env: EnvArgs): Configuration {
     return {
+        devtool: "eval-source-map",
+
+        mode: "development",
+
         // Where webpack looks to set the development server
         devServer: {
-            // port: 3000,
             open: true,
             hot: true,
             historyApiFallback: true,
             static: paths.build,
             compress: true,
+            client: {
+                progress: true,
+            },
         },
 
         // Customize the webpack build process
@@ -20,8 +26,5 @@ export default function createConfiguration(env: EnvArgs): Configuration {
                 systemvars: true,
             }),
         ],
-
-        // Determine how modules within the project are treated
-        // module: { rules: [] },
     };
 }

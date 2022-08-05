@@ -7,5 +7,6 @@ export function getApiUrl(): string {
     const port = process.env.SERVER_PORT;
     const prefix = process.env.SERVER_PREFIXURL;
     if (host && port && prefix) return `http://${host}:${port}/${prefix}`;
-    throw new Error("The url is not defined");
+    console.warn("No API url found");
+    return "";
 }
