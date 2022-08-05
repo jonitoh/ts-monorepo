@@ -50,7 +50,7 @@ function setupCloseOnExit(server: Server): void {
 }
 
 export async function startServer(
-    port: number = parseFloat(process.env.SERVER_PORT || "5001"),
+    port: number = parseFloat(process.env.PORT || "5001"),
     host: string = process.env.SERVER_HOST || "127.0.0.1",
 ): Promise<Server> {
     // Initiate express app
@@ -91,14 +91,18 @@ export async function startServer(
     return new Promise((resolve) => {
         const server: Server = app.listen(port, host, () => {
             const usedServer = server?.address();
-            if (usedServer && typeof usedServer !== "string") {
-                console.info(`Listening on port ${usedServer.port || "unknown"}`);
-                console.info(`Listening on host ${usedServer.address || "unknown"}`);
-                if (usedServer.port && usedServer.address) {
-                    console.info(`Listening on http://${usedServer.address}:${usedServer.port}`);
-                    console.info(
-                        `Hello world route on http://${usedServer.address}:${usedServer.port}/hello-world`,
-                    );
+            if (process.env.NODE_ENV === "development") {
+                if (usedServer && typeof usedServer !== "string") {
+                    console.info(`Listening on port ${usedServer.port || "unknown"}`);
+                    console.info(`Listening on host ${usedServer.address || "unknown"}`);
+                    if (usedServer.port && usedServer.address) {
+                        console.info(
+                            `Listening on http://${usedServer.address}:${usedServer.port}`,
+                        );
+                        console.info(
+                            `Hello world route on http://${usedServer.address}:${usedServer.port}/hello-world`,
+                        );
+                    }
                 }
             }
             const originalClose = server.close.bind(server);

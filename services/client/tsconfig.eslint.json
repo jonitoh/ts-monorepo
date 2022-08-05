@@ -1,0 +1,21 @@
+{
+    "extends": "../tsconfig.settings.json",
+    "include": ["config", "src"],
+    "compilerOptions": {
+        "composite": true,
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "jsx": "react-jsx",
+        "module": "CommonJS",
+        "baseUrl": "src",
+        "paths": {
+            "#/*": ["*"]
+        },
+        "typeRoots": ["src/declaration.d.ts", "../../node_modules/@types"],
+        "types": ["react", "react-dom", "node"]
+    },
+    "references": [
+        {
+            "path": "../common"
+        }
+    ]
+}
