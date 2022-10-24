@@ -50,8 +50,8 @@ function setupCloseOnExit(server: Server): void {
 }
 
 export async function startServer(
-    port: number = parseFloat(process.env.PORT || "5001"),
-    host: string = process.env.SERVER_HOST || "127.0.0.1",
+    port: number = parseFloat(process.env.PORT || "5000"),
+    host: string | undefined = process.env.HOST,
 ): Promise<Server> {
     // Initiate express app
     const app: Application = express();
@@ -78,8 +78,8 @@ export async function startServer(
     });
 
     // for development and avoid CORS stuff, Express will serve the built frontend
-    if (process.env.NODE_ENV && process.env.NODE_ENV !== "development") {
-        const monorepoMode = process.env.MONOREPO && process.env.MONOREPO === "true";
+    if (process.env.NODE_ENV === "production") {
+        const monorepoMode = process.env.MONOREPO === "true";
         console.info(`monorepo Mode activated? ${monorepoMode ? "YES" : "NO"}`);
         app.use(express.static(path.join(__dirname, "../../client/build")));
         // app.use(express.static(path.join(__dirname, '../../client/build/assets')));
@@ -88,33 +88,38 @@ export async function startServer(
         });
     }
 
-    return new Promise((resolve) => {
-        const server: Server = app.listen(port, host, () => {
-            const usedServer = server?.address();
-            if (process.env.NODE_ENV === "development") {
-                if (usedServer && typeof usedServer !== "string") {
-                    console.info(`Listening on port ${usedServer.port || "unknown"}`);
-                    console.info(`Listening on host ${usedServer.address || "unknown"}`);
-                    if (usedServer.port && usedServer.address) {
-                        console.info(
-                            `Listening on http://${usedServer.address}:${usedServer.port}`,
-                        );
-                        console.info(
-                            `Hello world route on http://${usedServer.address}:${usedServer.port}/hello-world`,
-                        );
-                    }
+    let server: Server;
+    const makeCallback = (resolve: (value: Server | PromiseLike<Server>) => void) => () => {
+        const usedServer = server?.address();
+        if (process.env.NODE_ENV === "development") {
+            if (usedServer && typeof usedServer !== "string") {
+                console.info(`Listening on port ${usedServer.port || "unknown"}`);
+                console.info(`Listening on host ${usedServer.address || "unknown"}`);
+                if (usedServer.port && usedServer.address) {
+                    console.info(`Listening on http://${usedServer.address}:${usedServer.port}`);
+                    console.info(
+                        `Hello world route on http://${usedServer.address}:${usedServer.port}/hello-world`,
+                    );
                 }
             }
-            const originalClose = server.close.bind(server);
+        }
+        const originalClose = server.close.bind(server);
 
-            function closeServer(callback?: ((err?: Error | undefined) => void) | undefined) {
-                return originalClose(callback);
-            }
-            server.close = closeServer;
-            setupCloseOnExit(server);
-            resolve(server);
-        });
-    });
+        function closeServer(callback?: ((err?: Error | undefined) => void) | undefined) {
+            return originalClose(callback);
+        }
+        server.close = closeServer;
+        setupCloseOnExit(server);
+        resolve(server);
+    };
+
+    return host
+        ? new Promise((resolve) => {
+              server = app.listen(port, host, makeCallback(resolve));
+          })
+        : new Promise((resolve) => {
+              server = app.listen(port, makeCallback(resolve));
+          });
 }
 
 export default { startServer };

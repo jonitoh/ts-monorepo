@@ -2,7 +2,7 @@
     "name": "jonitoh-ts-monorepo",
     "private": true,
     "version": "1.0.0",
-    "description": "Minimal monorepo implementation with typescript and npm workspaces best suited for MERN stack",
+    "description": "Minimal MERN Typescript Monorepo",
     "keywords": [
         "typescript",
         "monorepo",
@@ -42,7 +42,7 @@
         "postinstall": "node scripts/configure-references.js",
         "compile": "npm run compile --workspaces",
         "dev": "npm-run-all --parallel 'ws --name=dev --service=client' 'ws --name=dev --service=server'",
-        "heroku-postbuild": "npm run build",
+        "render-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm run build",
         "start": "npm run ws --name=start --service=server",
         "prepare": "husky install"
     },
@@ -50,6 +50,7 @@
         "@types/node": "^17.0.45",
         "@typescript-eslint/eslint-plugin": "^5.28.0",
         "@typescript-eslint/parser": "^5.28.0",
+        "cross-env": "^7.0.3",
         "eslint": "^8.17.0",
         "eslint-config-airbnb-base": "^15.0.0",
         "eslint-config-airbnb-typescript": "^17.0.0",

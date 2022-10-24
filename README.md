@@ -185,12 +185,14 @@ This project is released under the terms of the [MIT License](LICENSE).
 -   [Monorepo Setup with NPM and TypeScript](https://javascript.plainenglish.io/monorepo-setup-with-npm-and-typescript-90b329ba7275)
 -   [Monorepo II](https://blog.ah.technology/a-guide-through-the-wild-wild-west-of-setting-up-a-mono-repo-with-typescript-lerna-and-yarn-ed6a1e5467a)
 -   [Webpack in production for heroku](https://dev.to/ellehallal/how-to-deploy-a-web-app-to-heroku-2f4l)
--   [Img Shields](https://shields.io) for those beautiful badges !
--   [HTML code generator](https://www.html-code-generator.com/svg/country-flags) for the flag
--   [SVG Repo](https://www.svgrepo.com/) for the icons used here aka the logo and the back to top icon.
--   [Awesome README](https://github.com/matiassingers/awesome-readme): a curated list of awesome READMEs!
--   [Best-README-Template](https://github.com/othneildrew/Best-README-Template): another README template you can check it out.
--   [Fiber](https://github.com/gofiber/fiber) for their multilingual README.
+-   [R10 error heroku](https://help.heroku.com/P1AVPANS/why-is-my-node-js-app-crashing-with-an-r10-error)
+-   []()
+-   []()
+-   []()
+-   []()
+-   []()
+-   []()
+-   []()
 
 <!-- back to the top -->
 <p align="right">
