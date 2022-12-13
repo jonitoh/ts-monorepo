@@ -1,4 +1,12 @@
 {
+    "extends": "./tsconfig.eslint.json",
+    "compilerOptions": {
+        "noEmit": false,
+        "declaration": true,
+        "declarationMap": true,
+        "sourceMap": true,
+        "incremental": true
+    },
     "files": [],
     "references": [
         {
