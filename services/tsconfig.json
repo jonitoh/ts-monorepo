@@ -1,5 +1,5 @@
 {
-    "extends": "./tsconfig.eslint.json",
+    "extends": "../tsconfig.eslint.json",
     "compilerOptions": {
         "noEmit": false,
         "declaration": true,

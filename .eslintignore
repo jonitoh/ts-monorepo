@@ -1,38 +1,20 @@
 # logs
-logs/
-**/logs/
+/logs
+**/logs
 *.log
 
 # dependency directories
-node_modules/
-**/node_modules/
-
-# typeScript cache
-*.tsbuildinfo
-
-# dotenv environment variables file
-.env
+/node_modules
+**/node_modules
 
 # build / generated output
-dist/
-**/dist/
-build/
-**/build/
-
-*/**.d.ts
-
-# macOS folder
-.DS_Store
-
-# VSCODE folder
-.vscode/
+/dist
+**/dist
+/build
+**/build
 
 # other folders
-temp/*
-data/*
-docs/*
-scripts/*
-
-# POSTCSS config
-postcss.config.js
-**/postcss.config.js
+/.temp
+/data
+/docs
+**/docs
