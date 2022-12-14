@@ -1,3 +1,0 @@
-{
-    "services/**/*.ts": ["npm run main --name=format:fix", "npm run main --name=test"]
-}

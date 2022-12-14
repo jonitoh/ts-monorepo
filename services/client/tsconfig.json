@@ -1,25 +1,26 @@
 {
-    "extends": "./tsconfig.json",
-    "compilerOptions": {
-        "baseUrl": "./",
-        "rootDir": "src",
-        "noEmit": false,
-        "outDir": "build",
-        "declaration": true,
-        "declarationMap": true,
-        "sourceMap": true,
-        "lib": ["dom", "dom.iterable", "esnext"],
-        "jsx": "react-jsx",
-        "typeRoots": ["src/declaration.d.ts", "../../node_modules/@types", "../../types"],
-        "types": ["react", "react-dom", "node"],
-        "paths": {
-            "#/*": ["src/*"]
-        }
-    },
-    "references": [
-        {
-            "path": "../common"
-        }
-    ],
-    "exclude": ["**/tests/**", "**/*.test.ts", "**/*.test.tsx", "**/*.test.js", "**/*.test.jsx"]
+	"extends": "./tsconfig.json",
+	"compilerOptions": {
+		"baseUrl": "./",
+		"rootDir": "src",
+		"noEmit": false,
+		"outDir": "build",
+		"declaration": true,
+		"declarationMap": true,
+		"sourceMap": true,
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"jsx": "react-jsx",
+		"typeRoots": ["src/declaration.d.ts", "../../node_modules/@types", "../../types"],
+		"types": ["react", "react-dom", "node"],
+		"paths": {
+			"#/*": ["src/*"]
+		}
+	},
+	"references": [
+		{
+			"path": "../common"
+		}
+	],
+	"include": ["src/**/*.ts", "src/**/*.js"],
+	"exclude": ["**/tests/**", "**/*.test.ts", "**/*.test.tsx", "**/*.test.js", "**/*.test.jsx"]
 }

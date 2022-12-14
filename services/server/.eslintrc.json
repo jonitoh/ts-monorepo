@@ -1,17 +1,17 @@
 {
-    "root": true,
-    "extends": ["../.eslintrc.json"],
-    "settings": {
-        "import/resolver": {
-            "typescript": {
-                "alwaysTryTypes": true,
-                "project": ["./tsconfig.json"],
-                "sourceType": "module"
-            }
-        }
-    },
-    "parserOptions": {
-        "ecmaVersion": "latest",
-        "project": ["./tsconfig.json"]
-    }
+	"root": true,
+	"extends": ["../.eslintrc.json"],
+	"settings": {
+		"import/resolver": {
+			"typescript": {
+				"alwaysTryTypes": true,
+				"project": "./tsconfig.json",
+				"sourceType": "module"
+			}
+		}
+	},
+	"parserOptions": {
+		"ecmaVersion": "latest",
+		"project": "./tsconfig.json"
+	}
 }
