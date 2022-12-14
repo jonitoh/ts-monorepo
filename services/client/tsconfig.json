@@ -1,26 +1,21 @@
 {
-	"extends": "./tsconfig.json",
+	"extends": "./tsconfig.eslint.json",
 	"compilerOptions": {
 		"baseUrl": "./",
+		"incremental": true,
+		"composite": true,
 		"rootDir": "src",
 		"noEmit": false,
 		"outDir": "build",
 		"declaration": true,
 		"declarationMap": true,
-		"sourceMap": true,
-		"lib": ["dom", "dom.iterable", "esnext"],
-		"jsx": "react-jsx",
-		"typeRoots": ["src/declaration.d.ts", "../../node_modules/@types", "../../types"],
-		"types": ["react", "react-dom", "node"],
-		"paths": {
-			"#/*": ["src/*"]
-		}
+		"sourceMap": true
 	},
 	"references": [
 		{
 			"path": "../common"
 		}
 	],
-	"include": ["src/**/*.ts", "src/**/*.js"],
+	"include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.js", "src/**/*.jsx"],
 	"exclude": ["**/tests/**", "**/*.test.ts", "**/*.test.tsx", "**/*.test.js", "**/*.test.jsx"]
 }

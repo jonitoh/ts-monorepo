@@ -1,9 +1,15 @@
-console.info("shared package index point entry");
+import { getLength, getLogger, toUpperCase } from "./lib";
 
-export function toUpperCase(name: string): string {
-    return `--${name}--`.toUpperCase();
+export { getLength, getLogger, toUpperCase };
+
+const log = getLogger({ filepath: __filename });
+function dummyFunction(name: string): void {
+	const lines: string[] = [
+		`This is the name you chose: ${name}`,
+		`Its uppercase version: ${toUpperCase(name)}`,
+		`Its length: ${getLength(name)}`,
+	];
+	return lines.forEach((s: string) => log.info(`${s}\n`));
 }
 
-export function getLength(name: string): number {
-    return toUpperCase(name).length;
-}
+dummyFunction("Maximilian The Third");

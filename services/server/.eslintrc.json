@@ -5,13 +5,13 @@
 		"import/resolver": {
 			"typescript": {
 				"alwaysTryTypes": true,
-				"project": "./tsconfig.json",
+				"project": "./tsconfig.eslint.json",
 				"sourceType": "module"
 			}
 		}
 	},
 	"parserOptions": {
 		"ecmaVersion": "latest",
-		"project": "./tsconfig.json"
+		"project": "./tsconfig.eslint.json"
 	}
 }

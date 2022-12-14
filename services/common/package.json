@@ -1,40 +1,46 @@
 {
-    "name": "@jonitoh-ts-monorepo/common",
-    "version": "1.0.0",
-    "description": "",
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/jonitoh/ts-monorepo/issues"
-    },
-    "repository": {
-        "type": "git",
-        "directory": "services/common",
-        "url": "git+https://github.com/jonitoh/ts-monorepo.git"
-    },
-    "homepage": "https://github.com/jonitoh/ts-monorepo#readme",
-    "engines": {
-        "node": "17.0.1",
-        "npm": "8.1.0"
-    },
-    "main": "dist/index.js",
-    "typings": "dist/index.d.ts",
-    "scripts": {
-        "format": "prettier --config ../../.prettierrc --ignore-path ../../.prettierignore 'src/*.ts'",
-        "postformat": "rimraf node_modules",
-        "format:fix": "prettier --config ../../.prettierrc --ignore-path ../../.prettierignore --write 'src/*.ts'",
-        "postformat:fix": "rimraf node_modules",
-        "lint": "eslint --ignore-path ../../.eslintignore --ext .ts,.js",
-        "lint:fix": "eslint --ignore-path ../../.eslintignore --ext .ts,.js --fix",
-        "verify": "npm-run-all --sequential format:fix lint:fix",
-        "test": "echo 'Error: no test specified'",
-        "dev": "ts-node -r tsconfig-paths/register src/index.ts",
-        "clean": "rimraf dist tsconfig.tsbuildinfo",
-        "compile": "tsc --build",
-        "build": "npm-run-all --sequential clean compile",
-        "start": "node dist/index.js",
-        "prepublishOnly": "npm run build",
-        "watch": "tsc --build -w --preserveWatchOutput"
-    }
+	"name": "@jonitoh-ts-monorepo/common",
+	"version": "1.0.0",
+	"description": "",
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/jonitoh/ts-monorepo/issues"
+	},
+	"repository": {
+		"type": "git",
+		"directory": "services/common",
+		"url": "git+https://github.com/jonitoh/ts-monorepo.git"
+	},
+	"homepage": "https://github.com/jonitoh/ts-monorepo#readme",
+	"engines": {
+		"node": ">=17.0.1",
+		"yarn": "yarn is not supported, please use npm",
+		"npm": ">=8.1.0"
+	},
+	"main": "dist/index.js",
+	"typings": "dist/index.d.ts",
+	"scripts": {
+		"format": "prettier --config ../../.prettierrc --ignore-path ../../.prettierignore .",
+		"lint": "eslint --ignore-path ../../.eslintignore --fix .",
+		"verify": "npm-run-all --sequential format lint",
+		"dev": "cross-env NODE_ENV=development ts-node -r tsconfig-paths/register -r dotenv/config src/index.ts",
+		"clean": "rimraf dist tsconfig.tsbuildinfo ../../coverage/common ../../.jest_cache/common",
+		"purge": "npm run clean && rimraf node_modules",
+		"compile": "tsc --build",
+		"build": "rimraf dist tsconfig.tsbuildinfo && npm run compile",
+		"start": "node -r dotenv/config dist/index.js",
+		"prepublishOnly": "npm run build",
+		"watch": "tsc --build -w --preserveWatchOutput",
+		"TODOtest": "jest --detectOpenHandles --colors",
+		"TODOtest:watch": "jest --detectOpenHandles --colors --coverage --watchAll",
+		"TODOtest:coverage": "jest --ci --silent --colors --coverage",
+		"TODOtest:view-coverage": "serve coverage/lcov-report"
+	},
+	"dependencies": {
+		"winston": "^3.8.2",
+		"winston-daily-rotate-file": "^4.7.1",
+		"dotenv": "^16.0.3"
+	}
 }
