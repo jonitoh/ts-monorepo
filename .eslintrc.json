@@ -20,7 +20,7 @@
 	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
 		"ecmaVersion": "latest",
-		"project": "**/tsconfig.eslint.json"
+		"project": ["./tsconfig.eslint.json", "./scripts/tsconfig.eslint.json"]
 	},
 	"settings": {
 		"import/extensions": [".js", ".ts"],
@@ -30,6 +30,11 @@
 		"import/resolver": {
 			"node": {
 				"extensions": [".js", ".ts"]
+			},
+			"typescript": {
+				"alwaysTryTypes": true,
+				"project": ["./tsconfig.eslint.json", "./scripts/tsconfig.eslint.json"],
+				"sourceType": "module"
 			}
 		}
 	},
@@ -47,9 +52,7 @@
 			"ignorePackages",
 			{
 				"js": "never",
-				"jsx": "never",
-				"ts": "never",
-				"tsx": "never"
+				"ts": "never"
 			}
 		],
 		// ** TYPESCRIPT ESLINT **

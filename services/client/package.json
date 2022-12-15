@@ -15,13 +15,15 @@
 	},
 	"homepage": "https://github.com/jonitoh/ts-monorepo#readme",
 	"engines": {
-		"node": "17.0.1",
-		"npm": "8.1.0"
+		"node": ">=17.0.1",
+		"yarn": "yarn is not supported, please use npm",
+		"npm": ">=8.1.0"
 	},
 	"main": "build/index.js",
-	"typings": "build/index.d.ts",
+	"types": "build/index.d.ts",
 	"scripts": {
 		"format": "prettier --config ../../.prettierrc --ignore-path ../../.prettierignore --write .",
+		"postformat": "echo 'manually removing prettier cache' && rimraf node_modules",
 		"lint": "eslint --ignore-path ../../.eslintignore --fix .",
 		"verify": "npm-run-all --sequential format lint",
 		"dev": "webpack serve --node-env development --config ./config/webpack.config.ts --env configPath=../../.env addon=$npm_config_addon",

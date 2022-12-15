@@ -1,20 +1,32 @@
-# logs
+### Node ###
+
+# Test
+/.jest_cache
+/coverage
+
+# Logs
 /logs
 **/logs
-*.log
 
-# dependency directories
+# Dependency
 /node_modules
 **/node_modules
+/jspm_packages
+/bower_components
+/.pnp
+.pnp.js
 
-# build / generated output
+# Production related
 /dist
 **/dist
 /build
 **/build
 
-# other folders
+# Garbage one
 /.temp
-/data
 /docs
 **/docs
+
+
+
+

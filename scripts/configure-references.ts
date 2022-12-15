@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 // cf. https://blog.ah.technology/a-guide-through-the-wild-wild-west-of-setting-up-a-mono-repo-with-typescript-lerna-and-yarn-ed6a1e5467a
 import { exec as _exec } from "child_process";
 import fs from "fs";

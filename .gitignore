@@ -4,6 +4,7 @@
 
 # Test
 /.jest_cache
+/coverage
 
 # Logs
 /logs
@@ -40,8 +41,6 @@ yarn-error.log*
 **/dist
 /build
 **/build
-# Testing related
-/coverage
 
 # Serverless generated files
 .serverless/

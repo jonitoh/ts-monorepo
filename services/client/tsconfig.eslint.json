@@ -2,12 +2,13 @@
 	"extends": "../tsconfig.eslint.json",
 	"compilerOptions": {
 		"lib": ["dom", "dom.iterable", "esnext"],
-		"jsx": "react-jsx",
-		"typeRoots": ["src/declaration.d.ts", "../../node_modules/@types", "../../types"],
-		"types": ["react", "react-dom", "node"],
+		"jsx": "react",
+		"module": "CommonJS",
 		"paths": {
-			"#/*": ["src/*"]
+			"#/*": ["./src/*"]
 		}
 	},
-	"include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "**/*.config.js", "**/*.config.ts"]
+	"typeRoots": ["src/types", "src/declaration.d.ts", "../../node_modules/@types"],
+	"types": ["react", "react-dom", "node"],
+	"include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"]
 }

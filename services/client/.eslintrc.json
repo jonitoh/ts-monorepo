@@ -1,19 +1,18 @@
 {
 	"root": true,
-	"env": {
-		"node": true,
-		"browser": true,
-		"commonjs": true,
-		"es6": true
-	},
-	"extends": ["./.eslintrc.json", "airbnb", "plugin:react/recommended"],
-	"plugins": ["@typescript-eslint", "import", "prettier", "react", "react-hooks"],
+	"extends": [
+		"../.eslintrc.json",
+		"airbnb",
+		"plugin:react/recommended",
+		"plugin:prettier/recommended"
+	],
+	"plugins": ["@typescript-eslint", "import", "react", "react-hooks", "prettier"],
 	"parserOptions": {
 		"ecmaFeatures": {
 			"jsx": true
 		},
 		"ecmaVersion": "latest",
-		"project": "./*/tsconfig.eslint.json"
+		"project": ["./tsconfig.eslint.json", "./config/tsconfig.eslint.json"]
 	},
 	"settings": {
 		"import/extensions": [".js", ".jsx", ".ts", ".tsx"],
@@ -26,7 +25,8 @@
 			},
 			"typescript": {
 				"alwaysTryTypes": true,
-				"project": "./*/tsconfig.eslint.json"
+				"project": ["./tsconfig.eslint.json", "./config/tsconfig.eslint.json"],
+				"sourceType": "module"
 			},
 			"webpack": {
 				"config": {
@@ -54,6 +54,7 @@
 				"ts": "never",
 				"tsx": "never"
 			}
-		]
+		],
+		"import/prefer-default-export": "warn"
 	}
 }

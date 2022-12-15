@@ -1,17 +1,24 @@
 {
 	"root": true,
 	"extends": ["../.eslintrc.json"],
+	"parserOptions": {
+		"ecmaVersion": "latest",
+		"project": "./tsconfig.eslint.json"
+	},
 	"settings": {
+		"import/extensions": [".js", ".ts"],
+		"import/parsers": {
+			"@typescript-eslint/parser": [".ts"]
+		},
 		"import/resolver": {
+			"node": {
+				"extensions": [".js", ".ts"]
+			},
 			"typescript": {
 				"alwaysTryTypes": true,
 				"project": "./tsconfig.eslint.json",
 				"sourceType": "module"
 			}
 		}
-	},
-	"parserOptions": {
-		"ecmaVersion": "latest",
-		"project": "./tsconfig.eslint.json"
 	}
 }

@@ -20,9 +20,10 @@
 		"npm": ">=8.1.0"
 	},
 	"main": "dist/index.js",
-	"typings": "dist/index.d.ts",
+	"types": "dist/index.d.ts",
 	"scripts": {
-		"format": "prettier --config ../../.prettierrc --ignore-path ../../.prettierignore .",
+		"format": "prettier --config ../../.prettierrc --ignore-path ../../.prettierignore --write .",
+		"postformat": "echo 'manually removing prettier cache' && rimraf node_modules",
 		"lint": "eslint --ignore-path ../../.eslintignore --fix .",
 		"verify": "npm-run-all --sequential format lint",
 		"dev": "cross-env NODE_ENV=development ts-node -r tsconfig-paths/register -r dotenv/config src/index.ts",
