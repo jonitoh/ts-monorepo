@@ -28,9 +28,7 @@
 		"npm": ">=8.1.0"
 	},
 	"workspaces": [
-		"services/common",
-		"services/client",
-		"services/server"
+		"services/*"
 	],
 	"scripts": {
 		"main": "npm run $npm_config_name --workspaces",

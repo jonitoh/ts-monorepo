@@ -1,14 +1,19 @@
 {
-    "files": [],
-    "references": [
-        {
-            "path": "common"
-        },
-        {
-            "path": "client"
-        },
-        {
-            "path": "server"
-        }
-    ]
+	"compilerOptions": {
+		"paths": {
+			"@jonitoh-ts-monorepo/*": ["./services/*/"]
+		}
+	},
+	"files": [],
+	"references": [
+		{
+			"path": "client"
+		},
+		{
+			"path": "common"
+		},
+		{
+			"path": "server"
+		}
+	]
 }

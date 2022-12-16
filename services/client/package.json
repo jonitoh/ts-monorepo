@@ -41,7 +41,7 @@
 		"TODOtest:view-coverage": "serve coverage/lcov-report"
 	},
 	"dependencies": {
-		"@jonitoh-ts-monorepo/common": "1.0.0",
+		"@jonitoh-ts-monorepo/common": "*",
 		"axios": "^1.2.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",

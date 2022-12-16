@@ -41,7 +41,7 @@
 		"TODOtest:view-coverage": "serve coverage/lcov-report"
 	},
 	"dependencies": {
-		"@jonitoh-ts-monorepo/common": "1.0.0",
+		"@jonitoh-ts-monorepo/common": "*",
 		"cors": "^2.8.5",
 		"express": "^4.18.2",
 		"dotenv": "^16.0.3"

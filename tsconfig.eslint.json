@@ -13,7 +13,10 @@
 		"isolatedModules": true,
 		"jsx": "preserve",
 		"incremental": true,
-		"noEmit": true
+		"noEmit": true,
+		"paths": {
+			"@jonitoh-ts-monorepo/*": ["./services/*/"]
+		}
 	},
 	"include": ["**/*.js", "**/*.ts"],
 	"exclude": [
